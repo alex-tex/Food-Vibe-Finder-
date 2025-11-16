@@ -14,7 +14,7 @@ function placeToBrief(p){
   };
 }
 
-// Simple helper to fetch from Gemini
+// Gemini
 async function callGemini(systemText, userText){
   const apiKey = "GEMINI_API_KEY";
   if (!apiKey){
@@ -95,4 +95,5 @@ Répond avec JSON uniquement sous cette forme:
   return [...scored, ...missing];
 
 }
+
 
