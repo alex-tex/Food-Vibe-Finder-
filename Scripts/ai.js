@@ -14,7 +14,7 @@ function placeToBrief(p){
   };
 }
 
-// Gemini
+//Utilisez gemini-2.5-flash ou 2.5 pro
 async function callGemini(systemText, userText){
   const apiKey = "GEMINI_API_KEY";
   if (!apiKey){
@@ -95,5 +95,6 @@ Répond avec JSON uniquement sous cette forme:
   return [...scored, ...missing];
 
 }
+
 
 
