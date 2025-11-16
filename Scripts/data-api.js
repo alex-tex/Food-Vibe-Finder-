@@ -4,7 +4,7 @@ const OVERPASS_URL = 'https://overpass-api.de/api/interpreter';
 const NOMINATIM_URL = 'https://nominatim.openstreetmap.org/search';
 
 function buildOverpassQuery(lat, lon, radius, limit){
-  // Search popular food-related amenities
+  // Rechercher des services populaires liés à la nourittzre
   const keys = ['restaurant','cafe','fast_food','bar','pub','ice_cream','food_court','biergarten'];
   const parts = keys.map(k=>`node(around:${radius},${lat},${lon})[amenity=${k}];`);
   return `
@@ -58,7 +58,7 @@ export async function searchNearby(lat, lon, { radius = 2000, limit = 80 } = {})
   const places = elements
     .filter(e=>e.type==='node')
     .map(n=>normalize(n, origin));
-  // de-dup by name and close distance
+
   const seen = new Map();
   const deduped = [];
   for (const p of places){
@@ -84,4 +84,5 @@ export async function geocodeText(text){
     display_name: it.display_name
   };
 }
+
 
