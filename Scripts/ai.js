@@ -22,13 +22,11 @@ async function callGemini(systemText, userText){
   }
 
   const body = {
-    // Use a fast model; adjust if you prefer pro
-    // gemini-1.5-flash supports system instruction and JSON responses
+
     system_instruction: { role: 'system', parts: [{ text: systemText }] },
     contents: [{ role: 'user', parts: [{ text: userText }] }],
     generationConfig: {
       temperature: 0.2,
-      // Force JSON-only output
       response_mime_type: 'application/json'
     }
   };
@@ -95,4 +93,5 @@ Répond avec JSON uniquement sous cette forme:
     .filter(p=>!scored.find(s=>s.id===p.id))
     .map(p=>({ ...p, ai_score: 0.3, ai_why: 'Fallback score' }));
   return [...scored, ...missing];
+
 }
