@@ -18,7 +18,7 @@ export function initMap(){
     attribution: '&copy; OpenStreetMap'
   }).addTo(map);
   markersLayer = L.layerGroup().addTo(map);
-  map.setView([37.773972, -122.431297], 13); // default SF
+  map.setView([37.773972, -122.431297], 13); //San Francisco
   return map;
 }
 
@@ -57,4 +57,5 @@ export function addPlaces(places){
     map.fitBounds(bounds, { padding: [40,40] });
   }
 }
+
 
