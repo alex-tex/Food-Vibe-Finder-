@@ -88,10 +88,11 @@ Répond avec JSON uniquement sous cette forme:
       ai_why: String(it.why || '')
     });
   });
-  // ensure every item has a score (fallback 0.3)
+  //valeur par défaut 0,3
   const missing = places
     .filter(p=>!scored.find(s=>s.id===p.id))
     .map(p=>({ ...p, ai_score: 0.3, ai_why: 'Fallback score' }));
   return [...scored, ...missing];
 
 }
+
